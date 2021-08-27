@@ -7,12 +7,10 @@ class LineFood < ApplicationRecord
   validates :count, numericality: { greater_than: 0 }
   # countが0より大きくないといけない。
 
-  scope :active, ->
-    { where(active: true) }
+  scope :active, -> { where(active: true) }
   # コントローラで、where(active:trueのものを取得する　
   # .activeメソッドが使えるようになった。
-  scope :other_restaurant, ->
-    (picked_restaurant_id) { where.not(restaurant_id: picked_restaurant_id) }
+  scope :other_restaurant, -> (picked_restaurant_id) { where.not(restaurant_id: picked_restaurant_id) }
   # コントローラで、restraunt_idが引数値じゃないものを全て取得する 
   # .other_restrauntメソッドが使えるようになった。
 

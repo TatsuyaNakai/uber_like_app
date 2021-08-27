@@ -100,7 +100,6 @@ export const Foods = ({ match }) => {
             newRestaurantName: e.response.data.new_restaurant,
           })
         } else {
-          console.log(e.response.status)
           throw e;
         }
       })

@@ -1,9 +1,10 @@
 class Api::V1::OrdersController < ApplicationController
   def create
-    posted_line_foods = LineFood.where(id: params[:line_food_ids])
+    posted_line_foods = LineFood.where(id: params[:line_food_ids], )
     # line_foodのidを格納してる配列をもとにLineFoodsテーブルに入ってるものを格納
     order = Order.new(
       total_price: total_price(posted_line_foods),
+      # restaurant_id: posted_line_foods.first.restaurant_id
     )
     # それぞれの食事の値段と数の積　とお店の手数料
     # をtotal_priceカラムにいれたOrderを新しく作る。
