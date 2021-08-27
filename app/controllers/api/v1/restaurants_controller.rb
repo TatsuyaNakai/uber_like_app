@@ -1,0 +1,11 @@
+class Api::V1::RestaurantsController < ApplicationController
+  def index
+    restaurants= Restaurant.all
+    render json: {
+      restaurants:restaurants
+    }, status: :ok
+  end
+end
+
+# Api::V1:: 　　で名前の空間を指定してる。
+# RestaurantControllerは、api/v1のところにあるよって書いてる。
